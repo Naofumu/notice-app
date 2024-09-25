@@ -1,0 +1,224 @@
+<div class="parent">  
+  <h2>Редактирование извещения</h2>  
+  <div class="form-row">
+    <div class="form-group">
+      <label for="number">Номер извещения</label>
+      <input id="number" type="text" [(ngModel)]="number" pInputText />
+    </div>
+    <div class="form-group">
+      <label for="dateOfNotice">Дата извещения</label>
+      <p-calendar [(ngModel)]="dateOfNotice" dateFormat="dd.mm.yy" [showButtonBar]="true"/>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">  
+      <label for="fullName">ФИО или номер</label>  
+      <input id="fullName" type="text" [(ngModel)]="fullName" pInputText />
+    </div>
+    <div class="form-group">
+      <label for="gender">Пол</label>
+      <p-autoComplete 
+      [(ngModel)]="selectedGender"
+      [dropdown]="true" 
+      [suggestions]="filteredGender" 
+      (completeMethod)="filterGenders($event)" 
+      field="name" 
+      />
+    </div>  
+    <div class="form-group">
+      <label for="birthdate">Дата рождения</label>
+      <p-calendar [(ngModel)]="birthdate"  dateFormat="dd.mm.yy"/>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">  
+      <label for="region">Район</label>  
+      <p-autoComplete 
+      [(ngModel)]="selectedRegion"
+      [dropdown]="true" 
+      [suggestions]="filteredRegion" 
+      (completeMethod)="filterRegions($event)" 
+      field="name" 
+      />  
+    </div>
+    <div class="form-group">
+      <label for="locality">Нас. пункт</label>
+      <input id="locality" type="text" [(ngModel)]="locality" pInputText />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="street">Улица</label>
+      <input id="street" type="text" [(ngModel)]="street" pInputText />
+    </div>
+    <div class="form-group">
+      <label for="dom">Дом</label>
+      <input id="dom" type="text" [(ngModel)]="dom" pInputText />
+    </div>
+    <div class="form-group">
+      <label for="kv">Кв</label>
+      <input id="kv" type="text" [(ngModel)]="kv" pInputText />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="temporaryAddress">Место временной регистрации</label>
+      <input id="temporaryAddress" type="text" [(ngModel)]="temporaryAddress"   pInputText />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="resident">Житель</label> <!--dropdown-->
+      <p-autoComplete 
+      [(ngModel)]="selectedResident"
+      [dropdown]="true" 
+      [suggestions]="filteredResident" 
+      (completeMethod)="filterResidents($event)" 
+      field="name" 
+      />
+    </div>
+    <div class="form-group">
+      <label for="category">Категория</label> <!--dropdown-->
+      <p-autoComplete 
+      [(ngModel)]="selectedCategory"
+      [dropdown]="true" 
+      [suggestions]="filteredCategory" 
+      (completeMethod)="filterCategories($event)" 
+      field="name" 
+      />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="socialGroup">Социальная группа</label> <!--dropdown-->
+      <p-autoComplete 
+      [(ngModel)]="selectedSocialGroup"
+      [dropdown]="true" 
+      [suggestions]="filteredSocialGroup" 
+      (completeMethod)="filterSocialGroups($event)" 
+      field="name" 
+      />
+    </div>
+    <div class="form-group">
+      <label for="work">Место работы (учебы) профессия</label>
+      <input id="work" type="text" [(ngModel)]="work" pInputText />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="diagnosis">Диагноз</label> <!--dropdown-->
+      <p-autoComplete 
+      [(ngModel)]="selectedDiagnosis"
+      [dropdown]="true" 
+      [suggestions]="filteredDiagnosis" 
+      (completeMethod)="filterDiagnosis($event)" 
+      field="name" 
+      [style]="{'width':'70%'}"
+      />
+    </div>
+    <div class="form-group">
+      <label for="diagnosisDate">Дата диагноза</label>
+      <p-calendar [(ngModel)]="diagnosisDate" dateFormat="dd.mm.yy" [showButtonBar]="true" />
+    </div>
+    <div class="form-group">
+      <label for="remnfection">Ремнфекция</label>
+      <p-checkbox
+        [(ngModel)]="remnfection"
+        [binary]="true"
+        inputId="binary" />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="confirmation">Лабораторное подтверждение</label> <!--dropdown-->
+      <p-autoComplete 
+      [(ngModel)]="selectedConfirmation"
+      [dropdown]="true" 
+      [suggestions]="filteredConfirmation" 
+      (completeMethod)="filterConfirmations($event)" 
+      field="name" 
+      />
+    </div>
+    <div class="form-group">
+      <label for="causative">Выявленный возбудитель</label>
+      <input id="causative" type="text" [(ngModel)]="causative" pInputText />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="transmissionPath">Путь передачи</label> <!--dropdown-->
+      <p-autoComplete 
+      [(ngModel)]="selectedTransmissionPath"
+      [dropdown]="true" 
+      [suggestions]="filteredTransmissionPath" 
+      (completeMethod)="filterTransmissionPaths($event)" 
+      field="name" 
+      />
+    </div>
+    <div class="form-group"></div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="placeOfDetection">Место выявления</label> <!--dropdown-->
+      <p-autoComplete 
+      [(ngModel)]="selectedPlaceOfDetection"
+      [dropdown]="true" 
+      [suggestions]="filteredPlaceOfDetection" 
+      (completeMethod)="filterPlaceOfDetections($event)" 
+      field="name" 
+      />
+    </div>
+    <div class="form-group">
+      <label for="additional">Дополнительно</label> <!--dropdown-->
+      <p-autoComplete 
+      [(ngModel)]="selectedAdditional"
+      [dropdown]="true" 
+      [suggestions]="filteredAdditional" 
+      (completeMethod)="filterAdditionals($event)" 
+      field="name" 
+      />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="circum">Обстоятельства выявления</label> <!--dropdown-->
+      <p-autoComplete 
+      [(ngModel)]="selectedObst"
+      [dropdown]="true" 
+      [suggestions]="filteredObst" 
+      (completeMethod)="filterObst($event)" 
+      field="name" 
+      />
+    </div>
+    <div class="form-group">
+      <label for="pregnancyDuration">Срок беременности</label> <!--dropdown-->
+      <p-autoComplete 
+      [(ngModel)]="selectedPregnancyDuration"
+      [dropdown]="true" 
+      [suggestions]="filteredPregnancyDuration" 
+      (completeMethod)="filterPregnancyDuration($event)" 
+      field="name" 
+      />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="doctor">Врач</label> <!--dropdown-->
+      <p-autoComplete 
+      [(ngModel)]="selectedDoctor"
+      [dropdown]="true" 
+      [suggestions]="filteredDoctor" 
+      (completeMethod)="filterDoctor($event)" 
+      field="name" 
+      />
+    </div>
+    <div class="form-group">
+      <label for="comment">Комментарий</label> 
+      <input id="comment" type="text" [(ngModel)]="comment" pInputText />
+    </div>
+  </div>
+  <div class="button-container">
+    <p-button class="button" label="Сохранить" (onClick)="save()" severity="success" /> 
+    <p-button label="Отменить" />
+</div>
+</div> 

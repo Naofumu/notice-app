@@ -1,0 +1,39 @@
+
+.parent {  
+  font-family: Arial, sans-serif;  
+  background-color: #f0f0f0;  
+  padding: 20px;  
+  border-radius: 8px;  
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  
+}
+.form-row {  
+  display: flex;  
+  justify-content: space-between;  
+  margin-bottom: 15px;  
+}
+.form-group {  
+  flex: 1;   
+}  
+input, ::ng-deep .p-autocomplete, ::ng-deep p-calendar{
+  margin-left: 100px;
+  width: 60%;
+}
+
+::ng-deep .p-autocomplete-panel, ::ng-deep .p-datepicker {  
+  background-color: #ffffff;   
+  border: 1px solid #ccc;  
+}
+#temporaryAddress{
+  width: 50%;
+  margin-left: 200px;
+}
+.button{
+  background-color: #28a745;
+}
+.button-container{
+  display: flex;  
+  justify-content: space-between; 
+}
+#number{
+  width: 20%;
+}
