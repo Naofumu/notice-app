@@ -12,7 +12,6 @@ export class AuthService {
   { }
 
   storeJwtToken(jwt: string) {
-    console.log('Storing JWT token:', jwt);
     localStorage.setItem(this.JWT_TOKEN, jwt)
   }
 

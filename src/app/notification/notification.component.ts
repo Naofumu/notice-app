@@ -7,6 +7,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { NotificationService } from './notification.service';
 import { CalendarModule } from 'primeng/calendar';
+import { AuthComponent } from '../auth/auth.component';
 
 @Component({
   selector: 'app-notification',
